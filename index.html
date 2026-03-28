@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Santiago | Portafolio Diseño Visual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rojo: #DB1A1A;
+            --fondo: #FFF6F6;
+            --acento: #8CC7C4;
+            --secundario: #2C687B;
+            --negro: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--fondo);
+            color: var(--negro);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Press Start 2P', cursive;
+            text-transform: uppercase;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            background-color: var(--secundario);
+            border-bottom: 4px solid var(--negro);
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--fondo);
+            text-decoration: none;
+            font-family: 'VT323', monospace;
+            font-size: 1.6rem;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: var(--acento);
+            transform: translateY(-2px);
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 8rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--negro);
+            background-color: var(--acento);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-card {
+            background: white;
+            border: 4px solid var(--negro);
+            display: inline-block;
+            padding: 3.5rem;
+            box-shadow: 12px 12px 0px var(--rojo);
+            transition: all 0.2s ease;
+        }
+
+        .hero-card:hover {
+            box-shadow: 4px 4px 0px var(--rojo);
+            transform: translate(8px, 8px);
+        }
+
+        header h1 { font-size: 1.2rem; color: var(--rojo); margin-bottom: 1.5rem; }
+        header p { font-family: 'VT323', monospace; font-size: 2.2rem; letter-spacing: 1px; }
+
+        /* --- SECCIONES --- */
+        section {
+            max-width: 1100px;
+            margin: 12rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            color: var(--secundario);
+            border-left: 8px solid var(--rojo);
+            padding-left: 1.5rem;
+        }
+
+        .subsection-title {
+            font-family: 'VT323', monospace;
+            font-size: 2rem;
+            margin-top: 5rem;
+            margin-bottom: 2.5rem;
+            color: var(--negro);
+        }
+
+        /* --- PROYECTOS (ESTÁTICO Y VIDEO) --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card, .video-card {
+            background-color: white;
+            border: 3px solid var(--negro);
+            box-shadow: 8px 8px 0px var(--secundario);
+            transition: all 0.15s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-card { aspect-ratio: 4 / 3; }
+        .video-card { aspect-ratio: 16 / 9; margin-bottom: 3rem; width: 100%; }
+
+        .project-card:hover, .video-card:hover {
+            box-shadow: 0px 0px 0px var(--secundario);
+            transform: translate(8px, 8px);
+        }
+
+        img, video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- HABILIDADES --- */
+        .software-flex { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .software-tag {
+            background: white;
+            border: 3px solid var(--negro);
+            padding: 1.5rem 3rem;
+            font-family: 'VT323', monospace;
+            font-size: 1.8rem;
+            box-shadow: 6px 6px 0px var(--acento);
+            transition: all 0.2s ease;
+        }
+        .software-tag:hover {
+            box-shadow: 0px 0px 0px var(--acento);
+            transform: translate(6px, 6px);
+        }
+
+        /* --- TENDENCIAS (CON NOMBRE DEBAJO) --- */
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 5rem;
+        }
+
+        .trend-card {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .trend-image-container {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border: 3px solid var(--negro);
+            box-shadow: 8px 8px 0px var(--secundario);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .trend-card:hover .trend-image-container {
+            box-shadow: 0px 0px 0px var(--secundario);
+            transform: translate(8px, 8px);
+        }
+
+        .trend-label p {
+            font-family: 'VT323', monospace;
+            font-size: 1.6rem;
+            color: var(--negro);
+            line-height: 1.2;
+            text-transform: uppercase;
+            padding-left: 0.8rem;
+            border-left: 5px solid var(--rojo);
+            transition: color 0.2s ease;
+        }
+
+        .trend-card:hover .trend-label p {
+            color: var(--rojo);
+        }
+
+        /* --- CONTACTO --- */
+        .contact-box {
+            background-color: var(--rojo);
+            color: white;
+            padding: 6rem 2rem;
+            border: 4px solid var(--negro);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .info-text { font-family: 'VT323', monospace; font-size: 2.6rem; }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            font-family: 'VT323', monospace;
+            font-size: 1.4rem;
+            border-top: 4px solid var(--negro);
+        }
+
+        @media (max-width: 600px) {
+            nav ul { gap: 1rem; }
+            nav a { font-size: 1.2rem; }
+            header { padding: 4rem 1rem; }
+            section { margin: 8rem auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#inicio">INICIO</a></li>
+            <li><a href="#proyectos">PROYECTOS</a></li>
+            <li><a href="#software">SOFTWARE</a></li>
+            <li><a href="#tendencias">TENDENCIAS</a></li>
+            <li><a href="#contacto">CONTACTO</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio">
+        <div class="hero-card">
+            <h1>David Santiago Barragan Alarcon</h1>
+            <p>Diseño Visual</p>
+        </div>
+    </header>
+
+    <section id="proyectos">
+        <h2 class="section-title">Portafolio de Proyectos</h2>
+
+        <h3 class="subsection-title">01 // Diseño Estático</h3>
+        <div class="gallery-grid">
+            <div class="project-card"><img src="fotos y videos/img/diseño estatico 1.png" alt="P1"></div>
+            <div class="project-card"><img src="fotos y videos/img/diseño estatico 2.png" alt="P2"></div>
+            <div class="project-card"><img src="fotos y videos/img/diseño estatico 3.png" alt="P3"></div>
+            <div class="project-card"><img src="fotos y videos/img/diseño estatico 4.png" alt="P4"></div>
+        </div>
+
+        <h3 class="subsection-title">02 // Diseño en Movimiento</h3>
+        <div class="video-card">
+            <video controls poster="fotos y videos/img/portada video 1.png">
+                <source src="fotos y videos/img/vid/video 1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-card">
+            <video controls poster="fotos y videos/img/portada video 2.png">
+                <source src="fotos y videos/img/vid/video 2.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <section id="software">
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        <div class="software-flex">
+            <div class="software-tag">Adobe Illustrator</div>
+            <div class="software-tag">Affinity Photo</div>
+            <div class="software-tag">After Effects</div>
+        </div>
+    </section>
+
+    <section id="tendencias">
+        <h2 class="section-title">Tendencias de Diseño</h2>
+        <div class="trends-grid">
+            
+            <div class="trend-card">
+                <div class="trend-image-container">
+                    <img src="fotos y videos/img/1.png" alt="Retro">
+                </div>
+                <div class="trend-label"><p>Tendencia Retro</p></div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-image-container">
+                    <img src="fotos y videos/img/2.png" alt="Minimalismo">
+                </div>
+                <div class="trend-label"><p>Minimalismo</p></div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-image-container">
+                    <img src="fotos y videos/img/3.png" alt="Artesanal">
+                </div>
+                <div class="trend-label"><p>Elementos artesanales y analógicos</p></div>
+            </div>
+
+            <div class="trend-card">
+                <div class="trend-image-container">
+                    <img src="fotos y videos/img/4.png" alt="Datos">
+                </div>
+                <div class="trend-label"><p>Visualización creativa de datos</p></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="contact-box">
+            <h2>Hablemos de diseño</h2>
+            <p class="info-text">David Santiago Barragan Alarcon</p>
+            <p class="info-text">Celular: 3142544993</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>David Santiago &copy; 2026 | Visual Designer Portfolio</p>
+    </footer>
+
+</body>
+</html>
